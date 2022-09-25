@@ -55,13 +55,11 @@ final class CooldownClosureTask extends Task
         return $this->isOver;
     }
 
-    public function onRun(): void
+   public function onRun(): void
     {
-        ($this->closure)($this->cooldown, $this->isOver);
-        if ($this->cooldown <= 0) {
-            $this->isOver = true;
-            throw new CancelTaskException();
-        }
+        ($this->closure)($this);
+        if ($this->cooldown <= 1) $this->isOver = true;
+        if ($this->cooldown <= 0) throw new CancelTaskException();
         $this->cooldown--;
     }
 }
