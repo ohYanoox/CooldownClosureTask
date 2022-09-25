@@ -1,6 +1,6 @@
 <?php
 
-namespace yournamespace;
+namespace yanoox;
 
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
